@@ -1,0 +1,97 @@
+﻿*Docker is a tool to create, deploy, and run applications using containers easily. 
+
+
+*A container is a standard unit of software that can be used to package applications and all the dependencies 
+to a single package. 
+These containers can be run on any server platform regardless of the underlying configuration or hardware 
+structure.
+
+
+*Downloading the Latest MongoDB Docker Image
+docker pull mongo
+
+
+*Deploying an Instance of MongoDB as a Container
+docker run --name mongodb mongo:4.0.4 (4.0.4 is the version of the mongo)
+
+Better still
+docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4
+
+The above command will run the container in detached mode, or in the background for us. 
+We are also mapping the container ports with host ports so that way we can access the database from a host level 
+application if we wanted to. The ports used were taken from the MongoDB documentation. You don’t need to map the 
+ports in order to use MongoDB. Like I said, the port mapping is only necessary if you wish to use it from your 
+host Mac, Windows, or Linux computer. If you plan to deploy all your applications as micro-services with Docker, 
+then you’d be fine as long as your containers can communicate with each other.
+
+
+*Interacting with the MongoDB Docker Container with Basic Shell Operations
+docker exec -it mongodb bash (docker exec -it shopping-mongo bash)
+docker exec -it shopping-mongo /bin/bash
+docker exec -it shopping-mongo bash
+
+The above command will connect to our deployment named mongodb (or shopping-mongo) using the interactive terminal 
+and start the bash shell. More details on connecting to detached Docker containers can be found in my previous 
+tutorial titled, Connecting to a Detached Docker Container for Terminal Interaction.
+You'll notice that you are now using your Terminal as if you were inside your container. 
+This is where we can start using MongoDB.
+
+
+*To launch the MongoDB shell client, execute the following:
+mongo
+
+When inside the MongoDB shell client, you can access all the functionality that is outlined in the MongoDB 
+documentation. 
+
+
+*For example, we can see what databases exist in our instance with the following:
+show dbs
+
+
+*To create a new database, we can use a multi-step process, the first being to define the database we wish to use:
+use thepolyglotdeveloper
+
+
+*
+
+-docker ps
+-docker pull mongo
+-docker run -d -p 27017:27017 --name shopping-mongo mongo
+-docker ps
+-docker logs -f shopping-mongo
+-docker exec -it shopping-mongo /bin/bash
+-ls
+-mongo
+-show dbs
+-use CatalogDb
+-db.createCollection('Products')
+-db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
+-db.Products.find({}).pretty()
+-db.Products.remove({})
+-show databases
+-show collections
+-db.Products.find({}).pretty()
+
+mongodb.driver
+
+-docker ps
+-docker ps -a
+-docker start de8a
+-docker run -d -p 27017:27017 --name shopping-mongo mongo
+
+-docker ps
+-docker stop de8a
+-docker rm de8a (remove)
+-docker rmi de8a (remove the image)
+-docker ps
+-docker ps -a
+-docker images
+-docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+-docker ps
+-Open Chrome and specify the following url to test: http://localhost:8000/swagger/index.html
+-docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+
+
+
+https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-container-deployment/
