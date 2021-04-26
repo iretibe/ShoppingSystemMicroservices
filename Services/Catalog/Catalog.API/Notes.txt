@@ -91,7 +91,39 @@ mongodb.driver
 -Open Chrome and specify the following url to test: http://localhost:8000/swagger/index.html
 -docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
 
+-docker ps -aq
+-docker stop $(docker ps -aq)
+-docker rm $(docker ps -aq)
+-docker rmi $(docker images -q)
+-docker system prune
+-docker images
 
-
+-docker run -d -p 3000:3000 mongoclient/mongoclient  (Used to download the mongo client image)
+-docker ps
 
 https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-container-deployment/
+
+
+*Redis is an open-source distributed in-memory data store. 
+We can use it as a distributed (no-SQL) database or as a distributed in-memory cache 
+or a pub/sub messaging engine, and more recently streaming engine. 
+
+-docker pull redis
+-docker images
+-docker run -d -p 6379:6379 --name aspnetrun-redis redis
+-docker ps
+-docker logs -f aspnetrun-redis
+-docker exec -it aspnetrun-redis /bin/bash
+-redis-cli
+-ping
+-set key value
+-get key
+-set name Somad (For testing purpose)
+-get name (For testing purpose)
+
+Microsoft.Extensions.Caching.StackExchangeRedis
+
+-docker ps
+-docker exec -it aspnetrun-redis /bin/bash
+-redis-cli
+-get eric
