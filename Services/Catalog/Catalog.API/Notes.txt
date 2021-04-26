@@ -127,3 +127,25 @@ Microsoft.Extensions.Caching.StackExchangeRedis
 -docker exec -it aspnetrun-redis /bin/bash
 -redis-cli
 -get eric
+
+
+-docker ps
+docker stop dcbd (To stop the running redis docker)
+-docker ps -a
+-docker rm dcbd
+-docker ps -a
+-docker images
+-docker ps
+-docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+
+
+*Portainer is a universal container management tool. 
+It works with Kubernetes, Docker, Docker Swarm and Azure ACI and allows you to manage containers 
+without needing to know platform-specific code.
+https://portainer.readthedocs.io/en/stable/deployment.html
+
+http://localhost:9000/#!/home
+
+
+
+
