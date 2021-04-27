@@ -54,52 +54,54 @@ use thepolyglotdeveloper
 
 *
 
--docker ps
--docker pull mongo
--docker run -d -p 27017:27017 --name shopping-mongo mongo
--docker ps
--docker logs -f shopping-mongo
--docker exec -it shopping-mongo /bin/bash
--ls
--mongo
--show dbs
--use CatalogDb
--db.createCollection('Products')
--db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
--db.Products.find({}).pretty()
--db.Products.remove({})
--show databases
--show collections
--db.Products.find({}).pretty()
+docker ps
+docker pull mongo
+docker run -d -p 27017:27017 --name shopping-mongo mongo
+docker ps
+docker logs -f shopping-mongo
+docker exec -it shopping-mongo /bin/bash
+ls
+mongo
+show dbs
+use CatalogDb
+db.createCollection('Products')
+db.Products.insertMany([{ 'Name':'Asus Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':54.93 }, { 'Name':'HP Laptop','Category':'Computers', 'Summary':'Summary', 'Description':'Description', 'ImageFile':'ImageFile', 'Price':88.93 } ])
+db.Products.find({}).pretty()
+db.Products.remove({})
+show databases
+show collections
+db.Products.find({}).pretty()
 
 mongodb.driver
 
--docker ps
--docker ps -a
--docker start de8a
--docker run -d -p 27017:27017 --name shopping-mongo mongo
+docker ps
+docker ps -a
+docker start de8a
+docker run -d -p 27017:27017 --name shopping-mongo mongo
 
--docker ps
--docker stop de8a
--docker rm de8a (remove)
--docker rmi de8a (remove the image)
--docker ps
--docker ps -a
--docker images
--docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
--docker ps
--Open Chrome and specify the following url to test: http://localhost:8000/swagger/index.html
--docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+docker ps
+docker stop de8a
+docker rm de8a (remove)
+docker rmi de8a (remove the image)
+docker ps
+docker ps -a
+docker images
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+docker ps
 
--docker ps -aq
--docker stop $(docker ps -aq)
--docker rm $(docker ps -aq)
--docker rmi $(docker images -q)
--docker system prune
--docker images
+Open Chrome and specify the following url to test: http://localhost:8000/swagger/index.html
 
--docker run -d -p 3000:3000 mongoclient/mongoclient  (Used to download the mongo client image)
--docker ps
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml down
+
+docker ps -aq
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+docker system prune
+docker images
+
+docker run -d -p 3000:3000 mongoclient/mongoclient  (Used to download the mongo client image)
+docker ps
 
 https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-container-deployment/
 
@@ -108,35 +110,35 @@ https://www.thepolyglotdeveloper.com/2019/01/getting-started-mongodb-docker-cont
 We can use it as a distributed (no-SQL) database or as a distributed in-memory cache 
 or a pub/sub messaging engine, and more recently streaming engine. 
 
--docker pull redis
--docker images
--docker run -d -p 6379:6379 --name aspnetrun-redis redis
--docker ps
--docker logs -f aspnetrun-redis
--docker exec -it aspnetrun-redis /bin/bash
--redis-cli
--ping
--set key value
--get key
--set name Somad (For testing purpose)
--get name (For testing purpose)
+docker pull redis
+docker images
+docker run -d -p 6379:6379 --name aspnetrun-redis redis
+docker ps
+docker logs -f aspnetrun-redis
+docker exec -it aspnetrun-redis /bin/bash
+redis-cli
+ping
+set key value
+get key
+set name Somad (For testing purpose)
+get name (For testing purpose)
 
 Microsoft.Extensions.Caching.StackExchangeRedis
 
--docker ps
--docker exec -it aspnetrun-redis /bin/bash
--redis-cli
--get eric
+docker ps
+docker exec -it aspnetrun-redis /bin/bash
+redis-cli
+get eric
 
 
--docker ps
+docker ps
 docker stop dcbd (To stop the running redis docker)
--docker ps -a
--docker rm dcbd
--docker ps -a
--docker images
--docker ps
--docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
+docker ps -a
+docker rm dcbd
+docker ps -a
+docker images
+docker ps
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 
 *Portainer is a universal container management tool. 
@@ -146,6 +148,13 @@ https://portainer.readthedocs.io/en/stable/deployment.html
 
 http://localhost:9000/#!/home
 
+https://www.pgadmin.org/
 
+
+http://localhost:8000/swagger/index.html
+http://localhost:8001/swagger/index.html
+http://localhost:9000 (admin & Admin@2021)
+http://localhost:5050 (admin@aspnetrun.com & admin1234)
+docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d
 
 
