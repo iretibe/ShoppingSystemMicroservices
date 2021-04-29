@@ -165,4 +165,5 @@ can run anywhere.
 
 *gRPC uses HTTP/2 as its transport protocol and ProtoBuf encoded content for efficient, fast communication
 
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build (This is to override an existing container if it has been updated)
 
