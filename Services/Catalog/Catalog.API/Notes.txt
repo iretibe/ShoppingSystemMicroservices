@@ -198,5 +198,5 @@ Install-Package MassTransit
 Install-Package MassTransit.RabbitMQ
 Install-Package MassTransit.AspNetCore
 
-
+https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html
 
