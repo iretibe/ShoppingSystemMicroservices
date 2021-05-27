@@ -11,7 +11,21 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
-      "UpstreamHttpMethod": [ "Get", "POST", "PUT" ]
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT" ],
+
+      //This setting should be used to add caching on a route in the Route configuration.
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+
+      ////Rate Limiting
+      //"RateLimitOptions": {
+      //  "ClientWhitelist": [],
+      //  "EnableRateLimiting": true,
+      //  "Period": "5s",
+      //  "PeriodTimespan": 1,
+      //  "Limit": 1
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
@@ -34,7 +48,7 @@
           "Port": 8000
         }
       ],
-      "UpstreamPathTemplate": "/Catalog",
+      "UpstreamPathTemplate": "/Catalog/GetProductByCategory/{category}",
       "UpstreamHttpMethod": [ "Get" ]
     },
 
@@ -73,7 +87,16 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+
+      //Rate Limiting
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "3s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      }
     },
 
     //Discount API

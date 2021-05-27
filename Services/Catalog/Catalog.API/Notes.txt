@@ -200,3 +200,11 @@ Install-Package MassTransit.AspNetCore
 
 https://ocelot.readthedocs.io/en/latest/introduction/gettingstarted.html
 
+https://ocelot.readthedocs.io/en/latest/features/ratelimiting.html
+Ocelot supports rate limiting of upstream requests so that your downstream services do not become overloaded
+
+https://ocelot.readthedocs.io/en/latest/features/caching.html
+Install-Package Ocelot.Cache.CacheManager
+
+
+
