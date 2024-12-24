@@ -53,7 +53,7 @@ namespace Basket.API
                 });
             });
 
-            services.AddMassTransitHostedService();
+            //services.AddMassTransitHostedService();
             //End MassTransit RabbitMQ Configuration**************
 
             services.AddSwaggerGen(c =>
